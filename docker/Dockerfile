@@ -1,4 +1,4 @@
-ARG CUDA="9.0"
+ARG CUDA="10.1"
 ARG CUDNN="7"
 
 FROM nvidia/cuda:${CUDA}-cudnn${CUDNN}-devel-ubuntu16.04
@@ -44,8 +44,8 @@ RUN git clone https://github.com/cocodataset/cocoapi.git \
  && python setup.py build_ext install
 
 # install PyTorch Detection
-RUN git clone https://github.com/facebookresearch/maskrcnn-benchmark.git \
- && cd maskrcnn-benchmark \
+RUN git clone https://github.com/zjhuang22/maskscoring_rcnn.git \
+ && cd maskscoring_rcnn \
  && python setup.py build develop
 
-WORKDIR /maskrcnn-benchmark
+WORKDIR /maskscoring_rcnn
